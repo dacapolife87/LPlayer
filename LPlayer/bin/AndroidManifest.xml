@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lplayer"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="18" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <permission android:name="capston.L.Player.permission.BroadcastReceiver"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light" >
+        <activity
+            android:name="capston.L.Player.Tab_MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+                
+        <activity android:name="capston.L.Player.Tab_LPlayer">
+        </activity>
+        
+        <activity android:name="capston.L.Player.Tab_PlayFileList">
+        </activity>
+        
+        <activity android:name="capston.L.Player.Tab_Download">
+        </activity>
+        <activity android:name="capston.L.Player.Tab_Extract">
+        </activity>
+        <activity android:name="capston.L.Player.extractfileOpen">
+        </activity>
+        <activity android:name="capston.L.Player.Loading"
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        
+	</application>
+</manifest>

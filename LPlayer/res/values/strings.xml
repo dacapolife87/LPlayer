@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">L-Player</string>
+    <string name="action_settings">Settings</string>
+    <string name="File_Name">L-Player</string>
+    <string name="lplayer">보고듣는 어학학습기 \n L-Player\n</string>
+	<string name="down">Download</string>
+	<string name="Extract">Extract Audio</string>
+	<string name="SMICopy">Copy SMI</string>
+	<string name="AVIOpen">Open avi file</string>
+</resources>
