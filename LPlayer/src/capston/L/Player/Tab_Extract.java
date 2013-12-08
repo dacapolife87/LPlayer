@@ -26,8 +26,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.ProgressDialog;
 
-
 public class Tab_Extract extends Activity{
+	///////////
+	ForJNI fj;
+	///////////
 	private Button smiButton;
 	private Button openfilebtn;
 	private Button btnExtractAudio;
@@ -51,7 +53,9 @@ public class Tab_Extract extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.extracttab);
-		
+		///////////
+		fj = new ForJNI();
+		///////////
 		openfilebtn = (Button)findViewById(R.id.openbtn);
 		btnExtractAudio = (Button)findViewById(R.id.btnExtract);
 		
@@ -239,38 +243,39 @@ public class Tab_Extract extends Activity{
     	toast.show();
     }
 	private void startExtract(String src,MediaExtractor extractor){
-		int buffersize;
-		ByteBuffer inputBuffer = ByteBuffer.allocate(1024);
-		String dst = Environment.getExternalStorageDirectory().getAbsolutePath();
+//		int buffersize;
+//		ByteBuffer inputBuffer = ByteBuffer.allocate(1024);
 		
-		String dstfileName = fileDPName;
-		
+		String dst = Environment.getExternalStorageDirectory().getAbsolutePath();		
+		String dstfileName = fileDPName;		
 		dstfileName = dstfileName.substring(0, dstfileName.length()-4);
 		dst += "/LPlayer/"+dstfileName+".mp3";
-		
-		try {
-			File mp3File = new File(dst);
-			FileOutputStream fos = new FileOutputStream(mp3File);
-			while ((buffersize = extractor.readSampleData(inputBuffer,0)) >= 0) {
-				nowIdx++;
-				//int trackIndex = extractor.getSampleTrackIndex();
-				//long presentationTimeUs = extractor.getSampleTime();
-				byte[] buffer = new byte[buffersize];
-				buffer = inputBuffer.array();
-				fos.write(buffer,0,buffersize);
-				inputBuffer.clear();
-				extractor.advance();
-			}
-			fos.close();
-			bfinish=true;
-			//progressThread.setState(progressThread.STATE_DONE);
-			//progressDialog.dismiss();
-			extractor.release();
-			extractor = null;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Log.d("#########################################", "JNI start!!");
+		fj.open(src, dst);
+		bfinish=true;
+//		try {
+//			File mp3File = new File(dst);
+//			FileOutputStream fos = new FileOutputStream(mp3File);
+//			while ((buffersize = extractor.readSampleData(inputBuffer,0)) >= 0) {
+//				nowIdx++;
+//				//int trackIndex = extractor.getSampleTrackIndex();
+//				//long presentationTimeUs = extractor.getSampleTime();
+//				byte[] buffer = new byte[buffersize];
+//				buffer = inputBuffer.array();
+//				fos.write(buffer,0,buffersize);
+//				inputBuffer.clear();
+//				extractor.advance();
+//			}
+//			fos.close();
+//			bfinish=true;
+//			//progressThread.setState(progressThread.STATE_DONE);
+//			//progressDialog.dismiss();
+//			extractor.release();
+//			extractor = null;
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
 	public void onDestroy() {

@@ -1,0 +1,14 @@
+obj/local/armeabi-v7a/objs/avcodec/cga_data.o: \
+ jni/ffmpeg/libavcodec/cga_data.c \
+ /home/N/android-ndk-r9/platforms/android-18/arch-arm/usr/include/stdint.h \
+ /home/N/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/_types.h \
+ /home/N/android-ndk-r9/platforms/android-18/arch-arm/usr/include/machine/_types.h \
+ jni/ffmpeg/libavcodec/cga_data.h
+
+/home/N/android-ndk-r9/platforms/android-18/arch-arm/usr/include/stdint.h:
+
+/home/N/android-ndk-r9/platforms/android-18/arch-arm/usr/include/sys/_types.h:
+
+/home/N/android-ndk-r9/platforms/android-18/arch-arm/usr/include/machine/_types.h:
+
+jni/ffmpeg/libavcodec/cga_data.h:
